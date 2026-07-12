@@ -1,0 +1,258 @@
+[
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "on-sigusr1": "hide",
+  "on-sigusr2": "show",
+  "spacing": 0,
+  "modules-left": [
+    "custom/launcher",
+    "clock#date"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "pulseaudio",
+    "custom/bluetooth",
+    "network",
+    "battery",
+    "custom/notification",
+    "tray"
+  ],
+  "custom/launcher": {
+    "format": "{{Sir. Williams}}",
+    "tooltip": false,
+    "on-click": "rofi -show drun"
+  },
+  "clock#date": {
+    "format": "{:%d de %B}",
+    "tooltip-format": "{:%A, %d de %B de %Y - %H:%M}"
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "on-click": "activate",
+    "all-outputs": true,
+    "ignore-workspaces": [
+      "^special:.*"
+    ],
+    "format": "{name}{windows}",
+    "format-window-separator": "",
+    "window-rewrite-default": " ",
+    "window-rewrite": {
+      "class<kitty>": " ",
+      "class<Alacritty>": " ",
+      "class<foot>": " ",
+      "class<firefox>": " ",
+      "class<google-chrome>": " ",
+      "class<chromium>": " ",
+      "class<brave-browser>": " ",
+      "class<code>": " 󰨞",
+      "class<Code>": " 󰨞",
+      "class<VSCodium>": " 󰨞",
+      "class<gimp>": " ",
+      "class<org.kde.dolphin>": " ",
+      "class<dolphin>": " ",
+      "class<discord>": " ",
+      "class<Spotify>": " ",
+      "class<steam>": " ",
+      "class<obsidian>": " 󰠮",
+      "class<org.telegram.desktop>": " 󰈗"
+    },
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 70,
+    "separate-outputs": true
+  },
+  "cpu": {
+    "format": "󰘚  {usage}%",
+    "tooltip": false,
+    "interval": 2
+  },
+  "memory": {
+    "format": "󰍛  {percentage}%",
+    "tooltip-format": "{used:0.1f}G / {total:0.1f}G",
+    "interval": 5
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰝟  muted",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol"
+  },
+  "custom/bluetooth": {
+    "exec": "~/.config/waybar/scripts/bluetooth-status.sh",
+    "interval": 1,
+    "return-type": "json",
+    "tooltip": false,
+    "on-click": "rfkill unblock bluetooth && kitty --class bluetooth-tui --title Bluetooth -e bluetui"
+  },
+  "network": {
+    "format-wifi": "󰖩  {essid}",
+    "format-ethernet": "󰈀  ethernet",
+    "format-disconnected": "󰤮  sin red",
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "{essid} - {signalStrength}%",
+    "tooltip-format-ethernet": "{ifname}",
+    "tooltip-format-disconnected": "Sin conexión",
+    "on-click": "rfkill unblock wifi && kitty --class wifi-tui --title WiFi -e nmtui"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "battery": {
+    "bat": "BAT1",
+    "adapter": "ACAD",
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}",
+    "format-charging": "{icon}",
+    "format-plugged": "󰁹",
+    "format-full": "󰁹",
+    "tooltip-format": "Battery: {capacity}%\nStatus: battery\nTime: {timeTo}",
+    "tooltip-format-discharging": "Battery: {capacity}%\nStatus: unplugged\nTime remaining: {timeTo}",
+    "tooltip-format-charging": "Battery: {capacity}%\nStatus: plugged in, charging\nTime to full: {timeTo}",
+    "tooltip-format-plugged": "Battery: {capacity}%\nStatus: plugged in\nTime: {timeTo}",
+    "tooltip-format-full": "Battery: {capacity}%\nStatus: fully charged",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  "custom/notification": {
+    "tooltip": true,
+    "format": "{0} {icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "command -v swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "clock": {
+    "format": "󰥔  {:%H:%M}",
+    "format-alt": "󰃭  {:%d/%m/%Y}",
+    "tooltip-format": "{:%A, %d de %B de %Y}",
+    "on-click": "gsimplecal"
+  }
+},
+{
+  "name": "window-title",
+  "layer": "top",
+  "position": "bottom",
+  "height": 30,
+  "on-sigusr1": "noop",
+  "on-sigusr2": "noop",
+  "spacing": 0,
+  "margin-bottom": 3,
+  "margin-left": 10,
+  "margin-right": 10,
+  "modules-left": [],
+  "modules-center": [
+    "hyprland/window",
+    "custom/media-source",
+    "custom/audio-visualizer",
+    "custom/media-previous",
+    "custom/media-toggle",
+    "custom/media-next"
+  ],
+  "modules-right": [
+    "custom/special-workspace"
+  ],
+  "hyprland/window": {
+    "format": "{title}",
+    "fallback": "Desktop",
+    "icon": true,
+    "icon-size": 18,
+    "max-length": 80,
+    "separate-outputs": true,
+    "tooltip-format": "{class} - {title}"
+  },
+  "custom/media-source": {
+    "exec": "~/.config/waybar/scripts/media-status.sh source",
+    "return-type": "json",
+    "hide-empty-text": true,
+    "interval": 1,
+    "format": "{text}",
+    "on-click": "~/.config/waybar/scripts/media-status.sh focus",
+    "tooltip": true
+  },
+  "custom/audio-visualizer": {
+    "exec": "~/.config/waybar/scripts/audio-visualizer.sh",
+    "exec-if": "command -v cava && command -v playerctl",
+    "return-type": "json",
+    "hide-empty-text": true,
+    "format": "{text}",
+    "tooltip": true
+  },
+  "custom/media-previous": {
+    "exec": "~/.config/waybar/scripts/media-status.sh previous",
+    "return-type": "json",
+    "hide-empty-text": true,
+    "interval": 1,
+    "format": "{text}",
+    "on-click": "~/.config/waybar/scripts/media-status.sh previous-action",
+    "tooltip": true
+  },
+  "custom/media-toggle": {
+    "exec": "~/.config/waybar/scripts/media-status.sh toggle",
+    "return-type": "json",
+    "hide-empty-text": true,
+    "interval": 1,
+    "format": "{text}",
+    "on-click": "~/.config/waybar/scripts/media-status.sh toggle-action",
+    "tooltip": true
+  },
+  "custom/media-next": {
+    "exec": "~/.config/waybar/scripts/media-status.sh next",
+    "return-type": "json",
+    "hide-empty-text": true,
+    "interval": 1,
+    "format": "{text}",
+    "on-click": "~/.config/waybar/scripts/media-status.sh next-action",
+    "tooltip": true
+  },
+  "custom/special-workspace": {
+    "exec": "~/.config/waybar/scripts/special-workspace.sh",
+    "interval": 1,
+    "return-type": "json",
+    "format": "{text}",
+    "on-click": "~/.config/waybar/scripts/special-workspace.sh toggle",
+    "tooltip": true
+  }
+}
+]

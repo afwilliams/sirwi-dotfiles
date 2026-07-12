@@ -1,0 +1,170 @@
+* {
+  font: "JetBrainsMono Nerd Font 13";
+
+  background: rgba(10, 15, 30, 0%);
+  surface: rgba(31, 58, 92, 72%);
+  surface-soft: rgba(36, 66, 102, 78%);
+  surface-hover: rgba(41, 75, 115, 88%);
+  accent: rgba(245, 211, 137, 94%);
+  border: #0a0f1e;
+  text: #f8fafc;
+  muted: rgba(232, 236, 245, 72%);
+
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  width: 42%;
+  location: center;
+  anchor: center;
+  transparency: "real";
+  background-color: @background;
+}
+
+mainbox {
+  padding: 14px;
+  spacing: 10px;
+  background-color: @surface;
+  border: 3px;
+  border-color: @border;
+  border-radius: 18px;
+  children: [ inputbar, mode-switcher, listview ];
+}
+
+inputbar {
+  padding: 10px 14px;
+  spacing: 4px;
+  children: [ textbox-search-icon, entry ];
+  background-color: @border;
+  border: 2px;
+  border-color: @border;
+  border-radius: 999px;
+  text-color: @text;
+}
+
+textbox-search-icon {
+  expand: false;
+  width: 18px;
+  content: "";
+  background-color: @border;
+  text-color: @muted;
+}
+
+prompt {
+  enabled: false;
+  text-color: @accent;
+  font: "JetBrainsMono Nerd Font Bold 13";
+}
+
+entry {
+  expand: true;
+  horizontal-align: 0;
+  placeholder: "search...";
+  placeholder-color: @muted;
+  background-color: @border;
+  text-color: @text;
+}
+
+mode-switcher {
+  spacing: 6px;
+  orientation: horizontal;
+  background-color: transparent;
+}
+
+button {
+  padding: 6px 12px;
+  background-color: @surface-soft;
+  border: 2px;
+  border-color: @border;
+  border-radius: 999px;
+  text-color: @text;
+  font: "JetBrainsMono Nerd Font 12";
+}
+
+button selected {
+  background-color: @accent;
+  text-color: #1a1d28;
+  border-color: @border;
+}
+
+listview {
+  lines: 8;
+  columns: 1;
+  fixed-height: false;
+  dynamic: true;
+  cycle: false;
+  flow: vertical;
+  spacing: 8px;
+  background-color: transparent;
+  scrollbar: false;
+}
+
+element {
+  orientation: horizontal;
+  padding: 8px 14px;
+  spacing: 12px;
+  background-color: @surface-soft;
+  border: 2px;
+  border-color: @border;
+  border-radius: 12px;
+  text-color: @text;
+}
+
+element-icon {
+  size: 28px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  text-color: inherit;
+}
+
+element-text {
+  enabled: true;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  horizontal-align: 0;
+  vertical-align: 0.5;
+  text-color: inherit;
+  font: "JetBrainsMono Nerd Font 13";
+}
+
+element selected {
+  background-color: @accent;
+  border-color: @border;
+  text-color: #1a1d28;
+}
+
+element selected element-text,
+element selected element-icon,
+element normal active element-text,
+element alternate active element-text,
+element normal urgent element-text,
+element alternate urgent element-text {
+  background-color: transparent;
+  text-color: inherit;
+}
+
+element normal active,
+element alternate active {
+  background-color: @surface-hover;
+  text-color: @text;
+}
+
+element normal urgent,
+element alternate urgent {
+  background-color: transparent;
+  text-color: @text;
+}
+
+scrollbar {
+  width: 4px;
+  handle-width: 4px;
+  background-color: transparent;
+  handle-color: @accent;
+  border-radius: 999px;
+}

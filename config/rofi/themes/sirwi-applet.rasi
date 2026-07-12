@@ -1,0 +1,89 @@
+* {
+  font: "JetBrainsMono Nerd Font 13";
+
+  background: rgba(10, 15, 30, 0%);
+  surface: rgba(31, 58, 92, 72%);
+  surface-hover: rgba(41, 75, 115, 88%);
+  accent: rgba(245, 211, 137, 94%);
+  border: #0a0f1e;
+  text: #f8fafc;
+  muted: rgba(232, 236, 245, 72%);
+
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  width: 24%;
+  location: center;
+  anchor: center;
+  transparency: "real";
+  background-color: @background;
+}
+
+mainbox {
+  padding: 14px;
+  spacing: 0;
+  background-color: @surface;
+  border: 3px;
+  border-color: @border;
+  border-radius: 18px;
+  children: [ listview ];
+}
+
+inputbar,
+prompt,
+entry {
+  enabled: false;
+}
+
+listview {
+  lines: 3;
+  columns: 1;
+  fixed-height: true;
+  dynamic: false;
+  spacing: 8px;
+  background-color: transparent;
+  scrollbar: false;
+}
+
+element {
+  orientation: horizontal;
+  padding: 10px 14px;
+  spacing: 10px;
+  background-color: transparent;
+  border: 2px;
+  border-color: transparent;
+  border-radius: 999px;
+  text-color: @text;
+}
+
+element selected {
+  background-color: transparent;
+  border-color: @accent;
+  text-color: @text;
+}
+
+element-text {
+  enabled: true;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  text-color: @text;
+  font: "JetBrainsMono Nerd Font 13";
+}
+
+element selected element-text,
+element normal active element-text,
+element alternate active element-text,
+element normal urgent element-text,
+element alternate urgent element-text {
+  background-color: transparent;
+  text-color: @text;
+}
+
+element-icon {
+  enabled: false;
+}

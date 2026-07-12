@@ -1,0 +1,1 @@
+-- Autocommands are intentionally minimal while the Neovim setup grows gradually.

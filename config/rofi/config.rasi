@@ -1,0 +1,12 @@
+configuration {
+  modes: "drun,recursivebrowser,run";
+  sidebar-mode: true;
+  show-icons: true;
+  icon-theme: "Papirus";
+  display-drun: "Apps";
+  display-recursivebrowser: "Files";
+  display-run: "Commands";
+  drun-display-format: "{name}";
+}
+
+@theme "themes/sirwi.rasi"

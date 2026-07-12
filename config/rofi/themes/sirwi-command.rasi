@@ -1,0 +1,67 @@
+* {
+  font: "JetBrainsMono Nerd Font 13";
+
+  background: rgba(10, 15, 30, 0%);
+  surface: rgba(31, 58, 92, 72%);
+  surface-soft: rgba(36, 66, 102, 78%);
+  surface-hover: rgba(41, 75, 115, 88%);
+  accent: rgba(245, 211, 137, 94%);
+  border: #0a0f1e;
+  text: #f8fafc;
+  muted: rgba(232, 236, 245, 72%);
+
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  width: 32%;
+  location: center;
+  anchor: center;
+  transparency: "real";
+  background-color: @background;
+}
+
+mainbox {
+  padding: 14px;
+  spacing: 0;
+  background-color: @surface;
+  border: 3px;
+  border-color: @border;
+  border-radius: 18px;
+  children: [ inputbar ];
+}
+
+listview {
+  enabled: false;
+}
+
+inputbar {
+  padding: 10px 14px;
+  spacing: 10px;
+  children: [ textbox-prompt, entry ];
+  background-color: @border;
+  border: 2px;
+  border-color: @border;
+  border-radius: 999px;
+  text-color: @text;
+}
+
+textbox-prompt {
+  expand: false;
+  width: 20px;
+  content: "󰅬";
+  background-color: @border;
+  text-color: @accent;
+  font: "JetBrainsMono Nerd Font Bold 14";
+}
+
+entry {
+  expand: true;
+  horizontal-align: 0;
+  placeholder: "comando...";
+  placeholder-color: @muted;
+  background-color: @border;
+  text-color: @text;
+}

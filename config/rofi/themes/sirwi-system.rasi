@@ -1,0 +1,91 @@
+* {
+  font: "JetBrainsMono Nerd Font 13";
+
+  background: rgba(10, 15, 30, 0%);
+  surface: rgba(31, 58, 92, 72%);
+  surface-soft: rgba(36, 66, 102, 78%);
+  surface-hover: rgba(41, 75, 115, 88%);
+  accent: rgba(245, 211, 137, 94%);
+  border: #0a0f1e;
+  text: #f8fafc;
+  muted: rgba(232, 236, 245, 72%);
+
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  width: 26%;
+  location: center;
+  anchor: center;
+  transparency: "real";
+  background-color: @background;
+}
+
+mainbox {
+  padding: 14px;
+  spacing: 8px;
+  background-color: @surface;
+  border: 3px;
+  border-color: @border;
+  border-radius: 18px;
+  children: [ listview ];
+}
+
+inputbar,
+prompt,
+entry {
+  enabled: false;
+}
+
+listview {
+  lines: 6;
+  columns: 1;
+  fixed-height: false;
+  dynamic: true;
+  cycle: false;
+  flow: vertical;
+  spacing: 8px;
+  background-color: transparent;
+  scrollbar: false;
+}
+
+element {
+  orientation: horizontal;
+  padding: 10px 14px;
+  spacing: 12px;
+  background-color: @surface-soft;
+  border: 2px;
+  border-color: @border;
+  border-radius: 12px;
+  text-color: @text;
+}
+
+element selected {
+  background-color: @accent;
+  text-color: #1a1d28;
+  border-color: @border;
+}
+
+element normal active,
+element alternate active {
+  background-color: @surface-hover;
+  text-color: @text;
+}
+
+element-text {
+  enabled: true;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  horizontal-align: 0;
+  vertical-align: 0.5;
+  text-color: inherit;
+  font: "JetBrainsMono Nerd Font 14";
+}
+
+element-icon {
+  enabled: false;
+}

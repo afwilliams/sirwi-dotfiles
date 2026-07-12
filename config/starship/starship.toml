@@ -1,0 +1,34 @@
+scan_timeout = 1000
+command_timeout = 1000
+
+format = "$directory$git_branch$git_status$nodejs$python$lua$cmd_duration$line_break$character"
+
+[directory]
+style = "bold #f8fafc"
+truncation_length = 3
+truncate_to_repo = false
+
+[git_branch]
+style = "bold #c4b5fd"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "bold #f5d389"
+format = "([$all_status$ahead_behind]($style) )"
+
+[cmd_duration]
+style = "bold #f5d389"
+format = "took [$duration]($style) "
+
+[character]
+success_symbol = "[{Sir.} >](bold #f5d389)"
+error_symbol = "[{Sir.} >](bold #fca5a5)"
+
+[nodejs]
+format = "via [$symbol($version )]($style) "
+
+[python]
+format = "via [$symbol($version )]($style) "
+
+[lua]
+format = "via [$symbol($version )]($style) "
